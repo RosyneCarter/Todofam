@@ -19,12 +19,7 @@ class DatabaseSeeder extends Seeder
 
         User::truncate();
 
+        $this->call(UserTableSeeder::class);
 
-        $admin = User::create([
-            'name' => 'Rosyne Carter',
-            'email' => 'admin@admin.com',
-            
-            'password' => Hash::make('password')
-        ]);
     }
 }

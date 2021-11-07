@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function taches()
+    {
+        return $this->belongsToMany(Tache::class);
+    }
 }

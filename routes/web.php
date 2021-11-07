@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\userslisteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/usersliste', [userslisteController::class, 'index'])->name('usersliste');
+Route::get('/AddUser', [userslisteController::class, 'create'])->name('AddUser');
 
 require __DIR__.'/auth.php';

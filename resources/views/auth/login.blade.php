@@ -25,18 +25,18 @@
             <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Adresse Mail</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                  <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp"
                     placeholder="Entrez votre adresse mail">
                   <small id="emailHelp" class="form-text text-muted">We'll never share your
                     email with anyone else.</small>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Mot de Passe</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
                 </div>
                 <div class="form-group">
                   <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                    <input type="checkbox" name="checkbox" class="custom-control-input" id="customControlAutosizing">
                     <label class="custom-control-label" for="customControlAutosizing">Remember me</label>
                   </div>
                 </div>
