@@ -3,7 +3,7 @@
       <div class="sidebar-brand-icon">
         <img src="img/logo/logo2.png">
       </div>
-      <div class="sidebar-brand-text mx-3">RuangAdmin</div>
+      <div class="sidebar-brand-text mx-3">TodoFam's</div>
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item active">
@@ -13,7 +13,7 @@
     </li>
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
-      Features
+      TodoFam's
     </div>
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
@@ -24,8 +24,8 @@
       <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Administrateur</h6>
-          <a class="collapse-item" href="{{route('AddUser')}}">Ajouter un Utilisateur</a>
-          <a class="collapse-item" href="{{route('usersliste')}}">Liste des Utilisateurs</a>
+          <a class="collapse-item" href="{{route('admin.users.create')}}">Ajouter un Utilisateur</a>
+          <a class="collapse-item" href="{{route('admin.users.index')}}">Liste des Utilisateurs</a>
         </div>
       </div>
     </li>
@@ -33,13 +33,14 @@
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
         aria-controls="collapseForm">
         <i class="fab fa-fw fa-wpforms"></i>
-        <span>Forms</span>
+        <span>Tâches</span>
       </a>
       <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Forms</h6>
-          <a class="collapse-item" href="form_basics.html">Form Basics</a>
-          <a class="collapse-item" href="form_advanceds.html">Form Advanceds</a>
+          <h6 class="collapse-header">Tâches</h6>
+          <a class="collapse-item" href="{{route('admin.taches.create')}}">Ajouter</a>
+          <a class="collapse-item" href="{{route('admin.taches.index')}}">Lister des tâches</a>
+          <a class="collapse-item" href="{{route('admin.test.index')}}">Test</a>
         </div>
       </div>
     </li>
@@ -57,38 +58,4 @@
         </div>
       </div>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="ui-colors.html">
-        <i class="fas fa-fw fa-palette"></i>
-        <span>UI Colors</span>
-      </a>
-    </li>
-    <hr class="sidebar-divider">
-    <div class="sidebar-heading">
-      Examples
-    </div>
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true"
-        aria-controls="collapsePage">
-        <i class="fas fa-fw fa-columns"></i>
-        <span>Pages</span>
-      </a>
-      <div id="collapsePage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Example Pages</h6>
-          <a class="collapse-item" href="login.html">Login</a>
-          <a class="collapse-item" href="register.html">Register</a>
-          <a class="collapse-item" href="404.html">404 Page</a>
-          <a class="collapse-item" href="blank.html">Blank Page</a>
-        </div>
-      </div>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="charts.html">
-        <i class="fas fa-fw fa-chart-area"></i>
-        <span>Charts</span>
-      </a>
-    </li>
-    <hr class="sidebar-divider">
-    <div class="version" id="version-ruangadmin"></div>
   </ul>

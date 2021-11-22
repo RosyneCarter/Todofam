@@ -10,7 +10,7 @@ class Fichier extends Model
     use HasFactory;
 
 
-    protected $fillable =['nom','taches_id'];
+    protected $fillable =['nom','tache_id'];
 
 
     public function tache(){

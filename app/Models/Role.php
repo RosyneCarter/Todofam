@@ -5,15 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Etape extends Model
+class Role extends Model
 {
     use HasFactory;
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
 
-
-    protected $fillable =['nom','tache_id'];
-
-
-    public function tache(){
-        return $this->belongsTo(Tache::class);
     }
 }

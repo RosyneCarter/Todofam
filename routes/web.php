@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\userslisteController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\TacheController;
+use App\Http\Controllers\TachesController;
+use App\Http\Controllers\Admin\UsersController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +26,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/usersliste', [userslisteController::class, 'index'])->name('usersliste');
-Route::get('/AddUser', [userslisteController::class, 'create'])->name('AddUser');
+Route::name('admin.')->middleware('auth')->group(function(){
+    Route::resource('users', UsersController::class);
+});
+Route::name('admin.')->middleware('auth')->group(function(){
+    Route::resource('taches', TachesController::class);
+});
 
+Route::name('admin.')->middleware('auth')->group(function(){
+    Route::resource('test', TestController::class);
+});
+  
 require __DIR__.'/auth.php';

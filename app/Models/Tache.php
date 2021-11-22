@@ -9,7 +9,7 @@ class Tache extends Model
 {
     use HasFactory;
 
-    protected $fillable =['nom','ended_at','description'];
+    protected $fillable = ['nom','ended_at','description'];
 
     public function users()
     {

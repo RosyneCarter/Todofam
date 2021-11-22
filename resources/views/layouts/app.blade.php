@@ -11,6 +11,11 @@
         <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('css/ruang-admin.min.css')}}" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       </head>
       <body id="page-top">
         <div id="wrapper">
@@ -49,5 +54,17 @@
       <script src="{{asset('js/ruang-admin.min.js')}}"></script>
       <script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
       <script src="{{asset('js/demo/chart-area-demo.js')}}"></script> 
+      <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+
+      <script src="{{asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
+      <script src="{{asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    
+      <!-- Page level custom scripts -->
+      <script>
+        $(document).ready(function () {
+          $('#dataTable').DataTable(); // ID From dataTable 
+          $('#dataTableHover').DataTable(); // ID From dataTable with Hover
+        });
+      </script>
     </body>
 </html>

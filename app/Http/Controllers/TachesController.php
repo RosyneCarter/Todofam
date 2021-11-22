@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tache;
 use Illuminate\Http\Request;
 
-class userslisteController extends Controller
+class TachesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class userslisteController extends Controller
      */
     public function index()
     {
-        return view('Admin.usersliste');
+        $taches = Tache::all();
+        return view('Admin.Taches.index', compact('taches'));
     }
 
     /**
@@ -23,7 +25,7 @@ class userslisteController extends Controller
      */
     public function create()
     {
-        return view('Admin.AddUser');
+        return view('Admin.Taches.create');
     }
 
     /**
@@ -34,7 +36,13 @@ class userslisteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $taches = Tache::create([
+            'nom' => $request->nom, 
+            'ended_at' => $request->ended_at,
+            'description' => $request->description,
+        ]);
+        return redirect()->route('admin.taches.index');
+
     }
 
     /**
@@ -56,7 +64,8 @@ class userslisteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $taches = Tache::findOrFail($id);
+        return view('Admin.Taches.edit', compact('taches'));
     }
 
     /**
@@ -68,7 +77,13 @@ class userslisteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $taches = Tache::findOrFail($id);
+        $taches->update([
+            'nom'=>$request->nom,
+            'ended_at'=>$request->ended_at,
+            'description'=>$request->description,
+        ]);
+        return redirect()->route('admin.taches.index', compact('taches'));
     }
 
     /**
@@ -79,6 +94,8 @@ class userslisteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tache = Tache::findOrFail($id);
+        $tache->delete();
+        return redirect()->route('admin.taches.index');
     }
 }

@@ -16,7 +16,7 @@ class CreateFichiersTable extends Migration
         Schema::create('fichiers', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->foreignId('taches_id')->nullable()->onDelete('restrict')->onUpdate('restrict');
+            $table->foreignId('tache_id')->constrained();
             $table->timestamps();
         });
     }

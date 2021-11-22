@@ -18,9 +18,10 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
+        'nom',
         'email',
         'password',
+        'avatar'
     ];
 
     /**
@@ -42,6 +43,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+
+    }
+
+    public function isAdmin()
+    {
+        return $this->roles()->where('role', 'admin')->first();
+    }
+
+    public function hasAnyRole(array $roles)
+    {
+        return $this->roles()->whereIn('role', $roles)->first();
+    }
     public function taches()
     {
         return $this->belongsToMany(Tache::class);
