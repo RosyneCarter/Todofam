@@ -27,7 +27,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::name('admin.')->middleware('auth')->group(function(){
-    Route::resource('users', UsersController::class);
+    Route::resource('users', UsersController::class)->middleware('auth');
 });
 Route::name('admin.')->middleware('auth')->group(function(){
     Route::resource('taches', TachesController::class);

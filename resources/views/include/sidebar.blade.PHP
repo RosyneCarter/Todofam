@@ -15,6 +15,7 @@
     <div class="sidebar-heading">
       TodoFam's
     </div>
+    @can('manage-user')
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
         aria-expanded="true" aria-controls="collapseBootstrap">
@@ -29,6 +30,7 @@
         </div>
       </div>
     </li>
+    @endcan
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
         aria-controls="collapseForm">
@@ -40,7 +42,6 @@
           <h6 class="collapse-header">Tâches</h6>
           <a class="collapse-item" href="{{route('admin.taches.create')}}">Ajouter</a>
           <a class="collapse-item" href="{{route('admin.taches.index')}}">Lister des tâches</a>
-          <a class="collapse-item" href="{{route('admin.test.index')}}">Test</a>
         </div>
       </div>
     </li>

@@ -51,11 +51,13 @@
                               
                               <a href ="{{ route('admin.taches.show', $tache->id) }}"><button class = "btn btn-warning" title="Vusialiser"><i class="fa fa-eye"></i></button></a>
                               <a href ="{{ route('admin.taches.edit', $tache->id) }}"><button class = "btn btn-success" title="Editer"><i class="iconify" data-icon="bi:pencil-square"></i></button></a>
+                              @can('manage-user')
                               <form action="{{ route('admin.taches.destroy', $tache->id) }}" method="POST" class="d-inline">
                               @csrf
                               @method('DELETE')
                               <button type="submit" class="btn btn-danger" title="supprimer"><i class="iconify" data-icon="feather:trash-2" aria-hidden="true"></i></button>
-                              </form>    
+                              </form> 
+                              @endcan   
                               </div>
                               </td>
                           </tr>

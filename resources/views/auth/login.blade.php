@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>connexion</title>
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/ruang-admin.min.css')}}" rel="stylesheet">
@@ -27,8 +27,6 @@
                   <label for="exampleInputEmail1">Adresse Mail</label>
                   <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp"
                     placeholder="Entrez votre adresse mail">
-                  <small id="emailHelp" class="form-text text-muted">We'll never share your
-                    email with anyone else.</small>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Mot de Passe</label>

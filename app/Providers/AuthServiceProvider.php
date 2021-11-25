@@ -26,20 +26,20 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('manage-user', function($user){
-            return $user->hasAnyRole(['admin','Dad','Mom']);
+            return $user->hasAnyRole(['Parent']);
         });
         Gate::define('manage-role', function($user){
-            return $user->IsAdmin(['admin','Dad','Mom']);
+            return $user->IsAdmin(['Parent']);
         });
 
         Gate::define('edit-users', function($user){
-            return $user->hasAnyRole(['admin','Dad','Mom']);
+            return $user->hasAnyRole(['Parent']);
         });
         Gate::define('delete-users', function($user){
-            return $user->hasAnyRole(['admin','Dad','Mom']);
+            return $user->hasAnyRole(['Parent']);
         });
         Gate::define('modify-users', function($user){
-            return $user->hasAnyRole(['admin', 'Dad', 'Mom']);
+            return $user->hasAnyRole(['Parent']);
         });
     }
 }

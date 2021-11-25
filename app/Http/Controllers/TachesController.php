@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Tache;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,12 @@ class TachesController extends Controller
      */
     public function index()
     {
-        $taches = Tache::all();
+       $user = User::findOrFail(auth()->id());
+        if ($user->hasAnyRole(['parent'])) {
+            $taches = Tache::all();
+        }else {
+            $taches = auth()->user()->taches;
+        }
         return view('Admin.Taches.index', compact('taches'));
     }
 

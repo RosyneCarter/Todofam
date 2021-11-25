@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTachesUsersTable extends Migration
+class CreateTacheUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTachesUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('taches_users', function (Blueprint $table) {
+        Schema::create('tache_user', function (Blueprint $table) {
             $table->id();
             $table->integer('tache_id')->constrained();
             $table->integer('user_id')->constrained();
@@ -28,6 +28,6 @@ class CreateTachesUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taches_users');
+        Schema::dropIfExists('tache_user');
     }
 }

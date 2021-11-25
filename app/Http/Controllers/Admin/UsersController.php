@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Storage;
 
@@ -45,11 +47,22 @@ class UsersController extends Controller
             'email' => ['required'],
             'password' => ['required'],
         ]);
+        $avatars = $request->avatars;
+        if($avatars == " "){
+           $avatars = "boy.png";
+        }else{
+            $avatars = $avatars;
+        }
+        $roles = $request->role;
         $users = User::create([
             'nom' => $request->nom, 
             'email' => $request->email,
-            'password' => $request->password,
+            'role' => $request['role'],
+            'password' => Hash::make($request['password']),
+            'avatars' => $avatars,
         ]);
+        $role = Role::select('id')->where('id', $roles)->first();
+        $users->roles()->attach($role);
         return redirect()->route('admin.users.index');
     }
 
