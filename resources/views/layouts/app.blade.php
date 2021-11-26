@@ -26,6 +26,7 @@
             <div id="content">
               <!-- TopBar -->
               @include('include.nav')
+              @include('include.modal')
         </div>
         <main class="py-4">
             @yield('content')
@@ -55,6 +56,7 @@
       <script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
       <script src="{{asset('js/demo/chart-area-demo.js')}}"></script> 
       <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+      <script src="{{asset('js//step.js')}}"></script>
 
       <script src="{{asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
       <script src="{{asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>

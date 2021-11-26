@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Etape;
 use App\Models\Tache;
 use Illuminate\Http\Request;
 
-class TachesController extends Controller
+class EtapeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,13 +15,7 @@ class TachesController extends Controller
      */
     public function index()
     {
-       $user = User::findOrFail(auth()->id());
-        if ($user->hasAnyRole(['parent'])) {
-            $taches = Tache::all();
-        }else {
-            $taches = auth()->user()->taches;
-        }
-        return view('Admin.Taches.index', compact('taches'));
+        //
     }
 
     /**
@@ -32,7 +25,8 @@ class TachesController extends Controller
      */
     public function create()
     {
-        return view('Admin.Taches.create');
+        $taches = Tache::all();
+        return view('Admin.Taches.step', compact('taches'));
     }
 
     /**
@@ -43,13 +37,12 @@ class TachesController extends Controller
      */
     public function store(Request $request)
     {
-        $taches = Tache::create([
+        $taches = $request->nom;
+        $etapes = Etape::create([
             'nom' => $request->nom, 
-            'ended_at' => $request->ended_at,
-            'description' => $request->description,
+            'tache_id' => $request['nom'],
         ]);
-        return redirect()->route('admin.taches.index');
-
+        return redirect()->route('admin.taches.show', compact(['taches', 'etapes']));
     }
 
     /**
@@ -60,9 +53,7 @@ class TachesController extends Controller
      */
     public function show($id)
     {
-        $taches = Tache::all();
-        $etapes = Etape::all();
-        return view('Admin.Taches.show', compact(['taches', 'etapes']));
+        //
     }
 
     /**
@@ -73,8 +64,7 @@ class TachesController extends Controller
      */
     public function edit($id)
     {
-        $taches = Tache::findOrFail($id);
-        return view('Admin.Taches.edit', compact('taches'));
+        //
     }
 
     /**
@@ -86,13 +76,7 @@ class TachesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $taches = Tache::findOrFail($id);
-        $taches->update([
-            'nom'=>$request->nom,
-            'ended_at'=>$request->ended_at,
-            'description'=>$request->description,
-        ]);
-        return redirect()->route('admin.taches.index', compact('taches'));
+        //
     }
 
     /**
@@ -103,8 +87,6 @@ class TachesController extends Controller
      */
     public function destroy($id)
     {
-        $tache = Tache::findOrFail($id);
-        $tache->delete();
-        return redirect()->route('admin.taches.index');
+        //
     }
 }

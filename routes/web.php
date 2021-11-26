@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\EtapeController;
 use App\Http\Controllers\TacheController;
 use App\Http\Controllers\TachesController;
 use App\Http\Controllers\Admin\UsersController;
@@ -32,7 +33,9 @@ Route::name('admin.')->middleware('auth')->group(function(){
 Route::name('admin.')->middleware('auth')->group(function(){
     Route::resource('taches', TachesController::class);
 });
-
+Route::name('admin.')->middleware('auth')->group(function(){
+    Route::resource('etapes', EtapeController::class)->middleware('auth');
+});
 Route::name('admin.')->middleware('auth')->group(function(){
     Route::resource('test', TestController::class);
 });
